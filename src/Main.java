@@ -13,7 +13,7 @@ import java.util.Scanner;
  
 public class Main {
     public static void main(String[] args) {
-        task1();
+        // task1();
         // task2();
         // optionalTask();
     }
@@ -70,16 +70,44 @@ public class Main {
  
     public static void task2(){
         // Create the graph using the Graph class
+        String[] cities = {"A", "B", "C", "D", "E", "F", "G"};
+        Graph graph = new Graph(cities.length);
  
         // Call the cheapestRoute method from TravelPlan Class
+        graph.addEdge(0, 1, 10);  // A - B
+        graph.addEdge(0, 2, 15);  // A - C
+        graph.addEdge(1, 3, 12);  // B - D
+        graph.addEdge(3, 4, 2);   // D - E
+        graph.addEdge(3, 5, 1);   // D - F
+        graph.addEdge(4, 6, 5);   // E - G
+
+        TravelPlan.cheapestRoute(graph.getGraphMatrix(), cities, 0);
     }
+
     public static void optionalTask(){
         // Create the graph using WightedGraphAL class
+        WeightedGraphAL graph = new WeightedGraphAL();
  
+        graph.addEdge("A", "B", 10);
+        graph.addEdge("A", "C", 2);
+        graph.addEdge("A", "D", 8);
+        graph.addEdge("B", "E", 8);
+        graph.addEdge("B", "G", 10);
+        graph.addEdge("C", "D", 5);
+        graph.addEdge("C", "F", 8);
+        graph.addEdge("D", "G", 7);
+        graph.addEdge("E", "H", 7);
+        graph.addEdge("F", "I", 10);
+        graph.addEdge("G", "H", 10);
+        graph.addEdge("G", "I", 3);
+        graph.addEdge("H", "I", 5);
+
         System.out.println("Weighted Graph Adjacency List:");
         // Print the graph
+        System.out.println(graph);
          
         // Call the dijkstra method from graph
+        graph.dijkstra("A", "H");
     }
  
 }

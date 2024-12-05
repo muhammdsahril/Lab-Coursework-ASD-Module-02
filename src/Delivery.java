@@ -1,4 +1,3 @@
-// method dijkstra
 import java.util.*;
 
 public class Delivery {
